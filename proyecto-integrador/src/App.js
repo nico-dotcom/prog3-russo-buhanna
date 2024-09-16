@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from './screens/home';
+// import './styles.css'
+import {Switch, Route} from 'react-router-dom'
 
-function App() {
+function App(props) {
+  console.log('Estas son las props de la Aplicacion', props)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Switch >
+        <Route path='/' exact={true} component={Home} />
+      </Switch>
+    </>
   );
 }
+
 
 export default App;
