@@ -1,0 +1,11 @@
+.ver-mas {
+    background-color: #B86F52;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+}
