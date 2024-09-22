@@ -1,17 +1,17 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from '../components/Footer'
-import Detalle from "../components/Detalles";
+import Favorito from "../components/Favorito";
 
 
-function DetallePelicula(){
+function Favoritos(){
     return(
         <React.Fragment>
             <NavBar />
-            <Detalle />
+            <Favorito />
             <Footer />
         </React.Fragment>
-    ) 
+    )
 }
 
-export default DetallePelicula
+export default Favoritos

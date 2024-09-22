@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Card from '../Card';
-import './styles.css';
+import './style.css';
+
+
 export default class EnCartelera extends Component {
 
   constructor(props) {
