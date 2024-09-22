@@ -1,6 +1,6 @@
-import Home from './screens/home';
+import Home from './screens/Home';  
 import NotFound from './screens/NotFound';
-// import './styles.css'
+import './styles.css'
 import {Switch, Route} from 'react-router-dom'
 
 function App(props) {

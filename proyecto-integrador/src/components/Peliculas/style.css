@@ -1,0 +1,18 @@
+.titulo{
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+.btn-vermas {
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    background-color: #B86F52;
+    border: none;
+    padding: 10px 0; 
+    width: 10%;
+    margin: 0px 10px 10px 20px; 
+    font-size: 1rem;
+    border-radius: 0.25rem;
+  }
+  

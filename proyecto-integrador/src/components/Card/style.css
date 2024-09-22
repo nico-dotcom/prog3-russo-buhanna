@@ -1,0 +1,54 @@
+.character-card { 
+    background-color: white;
+    padding: 0px;
+    margin: 10px;
+    width: 18%; 
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    color: gray;
+
+}
+
+.character-card img { 
+    width: 100%;
+    height: auto;
+    border-radius: 20px 20px 0 0; 
+
+}
+
+
+.btn {
+    display: block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    background-color: #B86F52;
+    border: none;
+    padding: 7px 0; 
+    width: 90%;
+    margin: 0px auto 25px auto; 
+    font-size: 1rem;
+    border-radius: 0.25rem;
+  }
+  
+  .titulopelicula{
+    font-size: 17px;
+    margin-top: 15px;
+    margin-bottom: -5px;
+    text-align: center;
+}
+
+.textoinfo{
+    padding-left: 8%;
+    padding-right: 8%;
+    text-align: justify;
+    font-size: 15px;
+}
