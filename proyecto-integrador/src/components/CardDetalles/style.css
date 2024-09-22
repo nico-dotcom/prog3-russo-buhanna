@@ -1,0 +1,32 @@
+.character-card-new {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #dfdfdf;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    margin: 20px auto;
+  }
+
+.character-card-new img {
+    width: 40%;
+    border-radius: 10px;
+}
+
+.character-card-new .text-content {
+    width: 100%;
+}
+
+.character-card-new .title {
+    font-size: 24px;
+    color: #333;
+  margin: 10px 0;
+}
+
+.character-card-new .text {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
