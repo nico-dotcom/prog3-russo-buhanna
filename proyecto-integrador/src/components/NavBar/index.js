@@ -1,35 +1,41 @@
 import React from "react";
 import './style.css'
-import Opcion from '../Opcion'
+import Opcion from "../Opcion/";
 
 
 const opciones = [
     {
-        nombre:"Inicio",
+        nombre:"Home",
         ruta: '/'
     }, 
     {
-        nombre: "About us",
-        ruta: "/about"
+        nombre: "Favoritos",
+        ruta: "/favoritos"
     },
     {
-        nombre: "Personajes",
-        ruta:"/personajes"
+        nombre: "Mas vistas",
+        ruta:"/masvistas"
+    }, 
+    {
+        nombre: "En cartelera",
+        ruta:"/encartelera"
     }
+
 ]
 
 function Navbar() {
     return(
         <nav>
+            
             <ul className="main-nav">
+            <img className="logo" src="../img/logo.png" alt="" />
+
                {
                 opciones.map((elm) => <Opcion data={elm} /> )
                }
+
             </ul>
-            <ul className="user">
-                <li>Nombre usuario 
-                </li>
-            </ul>
+            
         </nav>
     )
 }

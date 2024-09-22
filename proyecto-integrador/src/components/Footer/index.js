@@ -4,7 +4,7 @@ import './style.css'
 function Footer(){
     return(
         <footer>
-            <p>Copyright © Dashboard 2022</p>
+            <p>Nicolas Russo & Delfina Buhanna</p>
         </footer>
     )
 }
