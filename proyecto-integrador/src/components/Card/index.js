@@ -10,7 +10,7 @@ class Card extends Component {
         this.state = {
             verMas: false,
             textBoton: "Ver más",
-            esFavorito: false 
+            esFavorito: false
         };
     }
 

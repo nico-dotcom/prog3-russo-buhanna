@@ -6,6 +6,7 @@ import Cartelera from './screens/Cartelera'
 import DetallePelicula from './screens/Detalle'
 import Favoritos from './screens/Favoritos'
 import MasVistas from './screens/MasVistas'
+//`import Gif from './components/Gif' 
 
 function App(props) {
   console.log('Estas son las props de la Aplicacion', props)
@@ -18,6 +19,7 @@ function App(props) {
         <Route path='/favoritos' exact={true} component={Favoritos} />
         <Route path='/pelicula/id/:id' component={DetallePelicula} />
         <Route path='' exact={true} component={NotFound} />
+
       </Switch>
     </>
   );

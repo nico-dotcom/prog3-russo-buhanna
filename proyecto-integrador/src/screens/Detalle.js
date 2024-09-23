@@ -8,7 +8,7 @@ function DetallePelicula(){
     return(
         <React.Fragment>
             <NavBar />
-            <Detalle />
+            <Detalle match ={props.match}/>
             <Footer />
         </React.Fragment>
     ) 
