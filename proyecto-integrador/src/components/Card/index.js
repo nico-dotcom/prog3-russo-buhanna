@@ -10,7 +10,7 @@ class Card extends Component {
         this.state = {
             verMas: false,
             textBoton: "Ver más",
-            esFavorito: false
+            esFavorito: false 
         };
     }
 
@@ -28,10 +28,10 @@ class Card extends Component {
     }
 
     verMas() {
-        this.setState(prevState => ({
-            verMas: !prevState.verMas,
-            textBoton: prevState.verMas ? "Ver más" : "Ocultar descripción"
-        }));
+        // this.setState(prevState => ({
+        //     verMas: !prevState.verMas,
+        //     textBoton: prevState.verMas ? "Ver más" : "Ocultar descripción"
+        // }));
     }
 
     agregarAStorage() {
@@ -70,7 +70,14 @@ class Card extends Component {
         this.setState({
             esFavorito: false
         });
+
+
+        if (this.props.actualizarFavPage) {
+            this.props.actualizarFavPage(id);
+        }
+        
     }
+
 
     render() {
         return (
