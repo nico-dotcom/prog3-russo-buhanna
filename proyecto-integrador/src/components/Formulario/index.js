@@ -1,32 +1,38 @@
-import React, { Component } from 'react';
+import { Component } from "react";
 import './style.css'
 
-export default class Formulario extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {valor: ''};
+class Formulario extends Component{
+
+  constructor(props){
+    super(props)
+    this.state = {
+      busqueda: ''
     }
-  
-    evitarSubmit(event) {
-      event.preventDefault();
-    }
-  
-    controlarCambios(event) {
-      this.setState({valor: event.target.value});
-    }
-  
-    render() {
-      return (
-        <form class="search-form" onSubmit={(event) => this.evitarSubmit(event)}>
-        <label>Busqueda: </label>
-        <input
-          type="text"
-          onChange={(event) => this.controlarCambios(event)}
-          value={this.state.valor}
-        />
-        <input type="submit" value="Submit" />
-      </form>
-      );
-    }
+
   }
-  
+
+  cambioEnInput(evento){
+    this.setState({
+      busqueda: evento.target.value
+    })
+  }
+
+  evitarSubit(evento){
+    evento.preventDefault()
+    this.props.history.push(`/resultados`, {busqueda: this.state.busqueda})
+  }
+
+  render(){
+
+    return(
+      <form className="search-form" onSubmit={(e) => this.evitarSubit(e)}>
+        <input value={this.state.busqueda} onChange = {(e) => this.cambioEnInput(e)} type="text" placeholder="Buscar película"/>
+        <button className="boton-buscar">Buscar</button>
+      </form>
+      
+    )
+  }
+
+}
+
+export default Formulario
