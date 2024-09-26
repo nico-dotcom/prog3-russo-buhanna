@@ -9,8 +9,9 @@ class Card extends Component {
     
         this.state = {
             verMas: false,
-            textBoton: "Ver más",
-            esFavorito: false 
+            esFavorito: false,
+            textoBoton: 'Ver Mas',
+            seleccionado: false
         };
     }
 
@@ -27,12 +28,19 @@ class Card extends Component {
         }
     }
 
-    verMas() {
-        // this.setState(prevState => ({
-        //     verMas: !prevState.verMas,
-        //     textBoton: prevState.verMas ? "Ver más" : "Ocultar descripción"
-        // }));
-    }
+    cambiarVerMas(){
+        this.setState({
+          verMas: !this.state.verMas,
+          textoBoton: this.state.verMas ? 'Ver Mas' : 'Ver Menos' 
+        })
+    
+      }
+    
+      seleccionarYDeseleccionar(){
+        this.setState({
+          seleccionado: !this.state.seleccionado
+        })
+      }
 
     agregarAStorage() {
         const id = this.props.ruta; 
@@ -86,10 +94,7 @@ class Card extends Component {
                     <img src={this.props.foto} alt="" />
                 </Link>
                 <h4 className="titulopelicula">{this.props.nombre}</h4>
-                <p className="textoinfo">
-                    {this.state.verMas ? this.props.descripcion : `${this.props.descripcion.substring(0, 100)}...`}
-                </p>
-                <button onClick={() => this.verMas()} className="btn">{this.state.textBoton}</button>
+
                 <Link to={`/pelicula/id/${this.props.ruta}`}>
                     <button className="btn">Ir a detalle</button>
                 </Link>
@@ -103,7 +108,19 @@ class Card extends Component {
                     <button className="btn" onClick={() => this.agregarAStorage()}>
                         Agregar a favoritos
                     </button>
+    
                 }
+
+                {this.state.verMas ?
+                                        <p className="textoInfo">{this.props.descripcion}r</p>
+                                    :
+                                        null
+
+                                }
+
+                        <button className="btn" onClick={() => this.cambiarVerMas()} >
+                            {this.state.textoBoton}
+                        </button>
             </div>
         );
     }

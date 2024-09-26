@@ -26,6 +26,7 @@
 
 
 .btn {
+
     display: block;
     font-weight: 400;
     color: #fff;
@@ -34,7 +35,7 @@
     border: none;
     padding: 7px 0; 
     width: 90%;
-    margin: 0px auto 25px auto; 
+    margin: 12px auto 25px auto; 
     font-size: 1rem;
     border-radius: 0.25rem;
   }
@@ -47,8 +48,7 @@
 }
 
 .textoinfo{
-    padding-left: 8%;
-    padding-right: 8%;
     text-align: justify;
     font-size: 15px;
+    margin-left: 10px;
 }
