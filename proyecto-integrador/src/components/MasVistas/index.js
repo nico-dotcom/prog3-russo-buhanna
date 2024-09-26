@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import Card from '../Card';
+import Filtrado from '../Filtrado';
 
 export default class EnCartelera extends Component {
   constructor(props) {
@@ -43,12 +44,29 @@ export default class EnCartelera extends Component {
 
 }
 
+filtrarPeliculas(nombrePelicula){
+  const peliculasFiltradas = this.state.peliculas.filter(
+      (elm) => elm.title.toLowerCase().includes(nombrePelicula.toLowerCase()) 
+  )
+
+  this.setState({
+      peliculas: peliculasFiltradas
+  })
+  
+}
 
   render() {
     const { peliculas } = this.state;
 
     return (
       <div>
+
+        {!this.props.limit  && (
+          <Filtrado filtrarPeliculas={ (nombre) => this.filtrarPeliculas(nombre)}/>
+          )}
+        
+        {!this.props.limit  && (
+
         <section className="cards">
           {peliculas.map((pelicula) => (
             <Card
@@ -59,10 +77,30 @@ export default class EnCartelera extends Component {
               ruta={pelicula.id}
             />
           ))}
+
+      
         </section>
+        )}
 
-        {!this.props.limit < peliculas.length && (
+        {this.props.limit  && (
 
+        <section className="cards">
+          {peliculas.slice(0,5).map((pelicula) => (
+            <Card
+              key={pelicula.id}
+              foto={`https://image.tmdb.org/t/p/original/${pelicula.poster_path}`}
+              nombre={pelicula.title}
+              descripcion={pelicula.overview}
+              ruta={pelicula.id}
+            />
+          ))}
+
+
+        </section>
+        )}
+
+        {!this.props.limit  && (
+          
           <button className='ver-mas' onClick={()=> this.verMas()}>Ver Más</button>
         )}
       </div>

@@ -12,11 +12,11 @@ function Peliculas() {
           <h2 className="titulo">Peliculas mas vistas </h2>      
           <Link to={`/masvistas`}><button className="btn-vermas">Ver todas</button></Link>
 
-           <MasVistas limit={5}  />
+           <MasVistas limit={true}  />
 
            <h2 className="titulo">Peliculas en cartelera </h2>
            <Link to={`/encartelera`}><button className="btn-vermas">Ver todas</button></Link>
-           <EnCartelera limit={5}  />
+           <EnCartelera limit={false}  />
 
         </section>
       );
