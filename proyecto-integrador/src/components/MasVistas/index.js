@@ -33,7 +33,7 @@ export default class EnCartelera extends Component {
 
   verMas(){
     const APIKEY = '42737f60c529bfe7e9586db8cb132a1c';
-    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${APIKEY}&page=${this.state.paginaACargar}`)
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKEY}&page=${this.state.paginaACargar}`)
     .then(resp => resp.json())
     .then(data => this.setState({
         peliculas: this.state.peliculas.concat(data.results),
