@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 import Detalle from "../components/Detalles";
 
 
-function DetallePelicula(){
+function DetallePelicula(props){
     return(
         <React.Fragment>
             <NavBar />
