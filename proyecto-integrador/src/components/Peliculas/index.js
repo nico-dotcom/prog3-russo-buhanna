@@ -16,7 +16,7 @@ function Peliculas() {
 
            <h2 className="titulo">Peliculas en cartelera </h2>
            <Link to={`/encartelera`}><button className="btn-vermas">Ver todas</button></Link>
-           <EnCartelera limit={false}  />
+           <EnCartelera limit={true}  />
 
         </section>
       );
