@@ -1,39 +1,33 @@
-
 import React, { Component } from 'react'
 import Card from '../Card';
 import Filtrado from '../Filtrado';
-
 export default class EnCartelera extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      peliculas: [],      
+      peliculas: [],
       paginaACargar: 2,
       peliculasBackup: [],
-
-    };
-}
-
+      loading: true
+}; }
   componentDidMount() {
     const APIKEY = '42737f60c529bfe7e9586db8cb132a1c';
-
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKEY}`)
+fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKEY}`)
       .then((resp) => resp.json())
-      .then((data) => {
+       .then((data) => {
         console.log(data);
-      
         this.setState({
-          peliculas: data.results, 
-          peliculasBackup: data.results
-        });
-        
-      })
+          peliculas: data.results,
+          peliculasBackup: data.results,
+          loading: false
+});
+})
       .catch((err) => console.log(err));
   }
-
   verMas(){
     const APIKEY = '42737f60c529bfe7e9586db8cb132a1c';
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKEY}&page=${this.state.paginaACargar}`)
+fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKEY}&pag
+e=${this.state.paginaACargar}`)
     .then(resp => resp.json())
     .then(data => this.setState({
         peliculas: this.state.peliculas.concat(data.results),
@@ -41,69 +35,57 @@ export default class EnCartelera extends Component {
         paginaACargar: this.state.paginaACargar + 1
     }))
     .catch(err => console.log(err))
-
 }
-
 filtrarPeliculas(nombrePelicula){
   const peliculasFiltradas = this.state.peliculas.filter(
-      (elm) => elm.title.toLowerCase().includes(nombrePelicula.toLowerCase()) 
-  )
-
+      (elm) =>
+elm.title.toLowerCase().includes(nombrePelicula.toLowerCase())
+)
   this.setState({
       peliculas: peliculasFiltradas
-  })
-  
-}
-
+}) }
   render() {
-    const { peliculas } = this.state;
-
-    return (
-      <div>
-
+    const { peliculas, loading } = this.state;
+ 
+      if (loading) {
+      return <p>Cargando...</p>;
+}
+return (
+<div>
         {!this.props.limit  && (
-          <Filtrado filtrarPeliculas={ (nombre) => this.filtrarPeliculas(nombre)}/>
+          <Filtrado filtrarPeliculas={ (nombre) =>
+this.filtrarPeliculas(nombre)}/>
           )}
-        
         {!this.props.limit  && (
-
         <section className="cards">
           {peliculas.map((pelicula) => (
             <Card
               key={pelicula.id}
-              foto={`https://image.tmdb.org/t/p/original/${pelicula.poster_path}`}
+foto={`https://image.tmdb.org/t/p/original/${pelicula.poster_path}`}
               nombre={pelicula.title}
               descripcion={pelicula.overview}
               ruta={pelicula.id}
             />
-          ))}
-
-      
+))}
         </section>
         )}
-
         {this.props.limit  && (
-
         <section className="cards">
           {peliculas.slice(0,5).map((pelicula) => (
             <Card
               key={pelicula.id}
-              foto={`https://image.tmdb.org/t/p/original/${pelicula.poster_path}`}
+foto={`https://image.tmdb.org/t/p/original/${pelicula.poster_path}`}
               nombre={pelicula.title}
               descripcion={pelicula.overview}
               ruta={pelicula.id}
             />
-          ))}
 
-
-        </section>
+))}
+</section>
         )}
-
         {!this.props.limit  && (
-          
-          <button className='ver-mas' onClick={()=> this.verMas()}>Ver Más</button>
-        )}
-      </div>
-    );
-  }
+          <button className='ver-mas' onClick={()=> this.verMas()}>Ver
+Más</button>
+)} </div>
+); }
 }
