@@ -18,8 +18,7 @@ export default class Resultados extends Component {
         const APIKEY = '42737f60c529bfe7e9586db8cb132a1c';
         const LoQueBuscaElUsuario = this.props.history.location.state.busqueda;
 
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&quer
-        y=${LoQueBuscaElUsuario}`)
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&query=${LoQueBuscaElUsuario}`)
                 .then((resp) => resp.json())
                 .then(data =>
                     this.setState({resultados:data.results,
